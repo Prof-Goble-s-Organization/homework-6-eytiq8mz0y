@@ -8,14 +8,23 @@
  * 
  */
 public class COMP232SortableLinkedList<E extends Comparable<E>> extends COMP232DoublyLinkedList<E> {
-
-	/**
-	 * Implementation of insertion sort for the LinkedList. The elements of the
-	 * list will be sorted according to the order imposed by their compareTo
-	 * method.
-	 */
 	public void insertionSortList() {
-		// Intentionally not implemented - see homework assignment.
-		throw new UnsupportedOperationException("Not yet implemented");
+		DLLNode<E> current = this.head.next.next;
+	
+		while (current != this.tail) {
+			DLLNode<E> prevNode = current.prev;
+			while (prevNode != this.head && prevNode.element.compareTo(current.element) > 0) {
+				prevNode = prevNode.prev;
+			}
+			if (prevNode != current.prev) {
+				current.prev.next = current.next;
+				current.next.prev = current.prev;
+				current.prev = prevNode;
+				current.next = prevNode.next;
+				prevNode.next.prev = current;
+				prevNode.next = current;
+			}
+			current = current.next;
+		}
 	}
 }

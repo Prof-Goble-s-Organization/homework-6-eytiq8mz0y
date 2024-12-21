@@ -1,0 +1,6 @@
+2.a. set a temp var to the first value. iterate over the list, for each member if it is less than the temp var overwrite the tempvar with that. return the temp var. worst case is n
+2.b. mergesort, select middle. nlogn
+2.c. same as 2.a, except we would have 10 temp vars instead of just 1.
+3. sounds reasonable, would help with the backwards iteration part, however at that poine one might as well do mergesort instead.
+5.a. linear - the moving of integers back will rarely need to happen, so the best case is O(n)
+5.b. roughly equal - both has worst case of nlogn
